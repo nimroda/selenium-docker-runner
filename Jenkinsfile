@@ -16,12 +16,10 @@ pipeline {
 				sh "docker-compose up --no-color book-flight-module"
 			}
 		}
-		}
 		stage("Run search-module Test") {
 			steps {
 				sh "docker-compose up --no-color search-module"
 			}
-		}
 		}
 		post{
 		    always{
@@ -29,8 +27,6 @@ pipeline {
 		        sh "docker-compose down"
 		    }
 		}
- 
- 
-
-
+    }
+}
 
