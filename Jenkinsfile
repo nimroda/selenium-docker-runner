@@ -21,6 +21,7 @@ pipeline {
 				sh "docker-compose up --no-color search-module"
 			}
 		}
+		}
 		post{
 		    always{
 		        archiveArtifacts artifacts: 'output/**'
@@ -28,5 +29,4 @@ pipeline {
 		    }
 		}
     }
-}
 
