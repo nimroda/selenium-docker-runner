@@ -11,9 +11,15 @@ pipeline {
 				sh "docker-compose up -d --no-color hub chrome firefox"
 			}
 		}
-		stage("Run Test") {
+		stage("Run book-flight-module Test") {
 			steps {
-				sh "docker-compose up --no-color book-flight-module search-module"
+				sh "docker-compose up --no-color book-flight-module"
+			}
+		}
+		}
+		stage("Run search-module Test") {
+			steps {
+				sh "docker-compose up --no-color search-module"
 			}
 		}
 		}
