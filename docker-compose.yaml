@@ -22,7 +22,7 @@ services:
       - firefox
     environment:
       - HUB_HOST=hub
-      - BROWSER=chrome
+      - BROWSER=firefox
       - MODULE=search-module.xml
     volumes:
       - ./output/search-results:/usr/share/automation/test-output
@@ -33,7 +33,7 @@ services:
       - firefox
     environment:
       - HUB_HOST=hub
-      - BROWSER=firefox
+      - BROWSER=chrome
       - MODULE=book-flight-module.xml
     volumes:
       - ./output/book-results:/usr/share/automation/test-output
