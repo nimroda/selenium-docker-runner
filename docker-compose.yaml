@@ -16,7 +16,7 @@ services:
     environment:
       - HUB_HOST=hub
   search-module:
-    image: IL02VLAPP5004.cfrm.dev.local:5000/selenium-docker
+    image: nimo1975/selenium-docker
     depends_on:
       - chrome
       - firefox
@@ -27,7 +27,7 @@ services:
     volumes:
       - ./output/search-results:/usr/share/automation/test-output
   book-flight-module:
-    image: IL02VLAPP5004.cfrm.dev.local:5000/selenium-docker
+    image: nimo1975/selenium-docker
     depends_on:
       - chrome
       - firefox
