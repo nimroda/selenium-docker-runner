@@ -21,8 +21,8 @@ services:
       - chrome
       - firefox
     environment:
-      - BROWSER=chrome
       - HUB_HOST=hub
+      - BROWSER=chrome
       - MODULE=search-module.xml
     volumes:
       - ./output/search-results:/usr/share/automation/test-output
@@ -32,8 +32,8 @@ services:
       - chrome
       - firefox
     environment:
-      - BROWSER=firefox
       - HUB_HOST=hub
+      - BROWSER=firefox
       - MODULE=book-flight-module.xml
     volumes:
       - ./output/book-results:/usr/share/automation/test-output
