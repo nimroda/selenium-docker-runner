@@ -1,5 +1,5 @@
 pipeline {
-	agent { label 'DOCKER2' }
+	agent any
 	stages {
 		stage("Pull Latest Image") {
 			steps {
