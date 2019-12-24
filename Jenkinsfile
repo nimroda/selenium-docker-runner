@@ -21,7 +21,7 @@ pipeline {
 			steps {
 				sh "docker-compose up --no-color search-module"
 			}
-		}
+		  }
 		}
 		post{
 		    always{
