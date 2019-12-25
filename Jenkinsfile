@@ -9,25 +9,25 @@ pipeline {
 		}
 		stage("Start Grid") {
 			steps {
-				sh "docker-compose up -d --scale hub=1 --scale chrome=4 --scale firefox=4 book-flight-module search-module"
+				sh "docker-compose up --no-color -d hub chrome firefox"
 			}
 		}
-		//stage("Run book-flight-module Test") {
-		//	steps {
-		//		sh "docker-compose up --no-color book-flight-module"
-		//	}
-		//}
-		//stage("Run search-module Test") {
-		//	steps {
-		//		sh "docker-compose up --no-color search-module"
-		//	}
-		// }
+		stage("Run book-flight-module Test") {
+			steps {
+				sh "docker-compose up --no-color book-flight-module"
+			}
 		}
-		//post{
-		//    always{
-		//        archiveArtifacts artifacts: 'output/**'
-		//        sh "docker-compose down"
-		//    }
-		//}
+		stage("Run search-module Test") {
+			steps {
+				sh "docker-compose up --no-color search-module"
+			}
+		 }
+		}
+		post{
+		    always{
+		        archiveArtifacts artifacts: 'output/**'
+		        sh "docker-compose down"
+		    }
+		}
     }
 
