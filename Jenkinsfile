@@ -9,7 +9,8 @@ pipeline {
 		}
 		stage("Start Grid") {
 			steps {
-				sh "docker-compose up -d --no-color --scale firefox=4 hub chrome"
+				sh "docker-compose up -d --no-color hub chrome firefox"
+				sh "docker-compose scale chrome=4 firefox=4"
 			}
 		}
 		stage("Run book-flight-module Test") {

@@ -33,7 +33,7 @@ services:
       - firefox
     environment:
       - HUB_HOST=hub
-      - BROWSER=firefox
+      - BROWSER=chrome
       - MODULE=book-flight-module.xml
     volumes:
       - ./output/book-results:/usr/share/automation/test-output
