@@ -4,6 +4,8 @@ services:
     image: selenium/hub:3.14
   chrome:
     image: selenium/node-chrome:3.14
+    deploy:
+      replicas: 4
     depends_on:
       - hub
     environment:
@@ -11,6 +13,8 @@ services:
   firefox:
     image: selenium/node-firefox:3.14
     shm_size: '1gb'
+    deploy:
+      replicas: 4
     depends_on:
       - hub
     environment:
