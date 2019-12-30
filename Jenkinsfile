@@ -26,7 +26,9 @@ pipeline {
 		}
 		stage("Run search-module Test") {
 			steps {
-				sh "docker-compose up --no-color search-module"
+				//sh "docker-compose up --no-color search-module"
+				def retstat = sh(script: 'docker-compose up --no-color search-module', returnStatus: true)
+				echo retstat
 			}
 		}
 		}
