@@ -9,19 +9,9 @@ pipeline {
 		}
 		stage("Start Grid") {
 			steps {
-				sh "docker-compose up --no-color -d hub chrome firefox"
+				sh "docker-compose up --no-color -d hub chrome firefox book-flight-module search-module"
 			}
 		}
-		stage("Run book-flight-module Test") {
-			steps {
-				sh "docker-compose up --no-color book-flight-module"
-			}
-		}
-		stage("Run search-module Test") {
-			steps {
-				sh "docker-compose up --no-color search-module"
-			}
-		 }
 		}
 		post{
 		    always{
