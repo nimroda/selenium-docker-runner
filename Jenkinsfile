@@ -1,5 +1,17 @@
 pipeline {
 	agent any
+	environment {
+        // Using returnStdout
+        CC = """${sh(
+                returnStdout: true,
+                script: 'echo "clang"'
+            )}""" 
+        // Using returnStatus
+        EXIT_STATUS = """${sh(
+                returnStatus: true,
+                script: 'exit 1'
+            )}"""
+    }
 	stages {
 		stage("Pull Latest Image") {
 			steps {
@@ -14,12 +26,7 @@ pipeline {
 		}
 		stage("Run search-module Test") {
 			steps {
-				//sh "docker-compose up --no-color search-module"
-				// Using returnStatus
-            EXIT_STATUS = """${sh(
-                returnStatus: true,
-                script: 'sh "docker-compose up --no-color search-module"'
-            )}"""
+				sh "docker-compose up --no-color search-module"
 			}
 		}
 		}
