@@ -14,12 +14,12 @@ pipeline {
 		}
 		stage("Run search-module Test") {
 			steps {
-				sh "docker-compose up --no-color search-module"
-			}
-		}
-		stage("Run book-flight-module Test") {
-			steps {
-				sh "docker-compose up --no-color book-flight-module"
+				//sh "docker-compose up --no-color search-module"
+				// Using returnStatus
+            EXIT_STATUS = """${sh(
+                returnStatus: true,
+                script: 'sh "docker-compose up --no-color search-module"'
+            )}"""
 			}
 		}
 		}
