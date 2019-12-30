@@ -20,7 +20,7 @@ services:
       - HUB_HOST=hub
       - HUB_PORT_4444_TCP_PORT=4444
   search-module:
-    image: nimo1975/selenium-docker
+    image: nimo1975/selenium-docker:latest
     depends_on:
       - chrome
       - firefox
@@ -31,7 +31,7 @@ services:
     volumes:
       - ./output/search-results:/usr/share/automation/test-output
   book-flight-module:
-    image: nimo1975/selenium-docker
+    image: nimo1975/selenium-docker:latest
     depends_on:
       - chrome
       - firefox
