@@ -18,7 +18,6 @@ pipeline {
 				catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     script {
                     def status = sh(script: "docker-compose up --no-color search-module", returnStatus: true)
-					echo $status
                     println("step status = ${status}")
                 }
                 }
