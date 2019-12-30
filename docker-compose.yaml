@@ -22,7 +22,7 @@ services:
       - firefox
     environment:
       - HUB_HOST=hub
-      - BROWSER=firefox
+      - BROWSER=chrome
       - MODULE=search-module.xml
     volumes:
       - ./output/search-results:/usr/share/automation/test-output
